@@ -42,5 +42,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* Math Operation*/
+
+void subtract(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void multiply(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
+void modulo(stack_t **stack, unsigned int line_number);
 
 #endif
