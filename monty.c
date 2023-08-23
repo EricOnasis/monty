@@ -73,3 +73,4 @@ instruction_func get_opcode_function(char *str)
 
 	return (instructions[i].f);
 }
+

@@ -20,7 +20,8 @@ void read_file(char *filename, stack_t **stack)
 	exit(EXIT_FAILURE);
 	}
 
-	while (fgets(var_global.buffer, sizeof(var_global.buffer), var_global.file) != NULL)
+	while (fgets(var_global.buffer,
+				sizeof(var_global.buffer), var_global.file) != NULL)
 	{
 	line = var_global.buffer;
 	line[strcspn(line, "\n")] = '\0';
@@ -76,13 +77,14 @@ void push(stack_t **stack, unsigned int line_number)
  * @stack: pointer to linked list stack
  * @line_number: number of line opcode occurs on
  */
-void print_all(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void print_all(stack_t **stack,
+		__attribute__((unused)) unsigned int line_number)
 {
 	stack_t *runner = *stack;
 
 	while (runner)
 	{
-	printf("%d\n", runner-> n);
+	printf("%d\n", runner->n);
 	runner = runner->next;
 	}
 }
@@ -100,7 +102,7 @@ void print_int(stack_t **stack, unsigned int line_number)
 	fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 	exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)-> n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
