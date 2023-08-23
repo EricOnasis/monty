@@ -51,6 +51,7 @@ void divide(stack_t **stack, unsigned int line_number);
 void modulo(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 int is_alphabetical(int c);
-void print_string(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void print_string(stack_t **stack,
+		__attribute__((unused)) unsigned int line_number);
 
 #endif

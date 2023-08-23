@@ -12,12 +12,12 @@ int is_alphabetical(int c)
 }
 
 /**
- * print_string - modify top of stack
+ * print_string - mod top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
-
-void print_string(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void print_string(stack_t **stack,
+		__attribute__((unused)) unsigned int line_number)
 {
 	stack_t *runner = *stack;
 
