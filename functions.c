@@ -21,9 +21,9 @@ void print_string(stack_t **stack,
 {
 	stack_t *runner = *stack;
 
-	while (runner && runner-> n != 0 && is_alphabetical(runner-> n))
+	while (runner && runner->n != 0 && is_alphabetical(runner->n))
 	{
-	putchar(runner-> n);
+	putchar(runner->n);
 	runner = runner->next;
 	}
 	putchar('\n');
