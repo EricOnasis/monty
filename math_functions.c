@@ -83,15 +83,15 @@ void divide(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 
-	if (runner-> n == 0)
+	if (runner->n == 0)
 	{
 	fprintf(stderr, "L%d: division by zero\n", line_number);
 	exit(EXIT_FAILURE);
 	}
 
-	result = runner->next-> n / runner-> n;
+	result = runner->next->n / runner->n;
 	pop(stack, line_number);
-	(*stack)-> n = result;
+	(*stack)->n = result;
 }
 
 /**
@@ -111,7 +111,7 @@ void modulo(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 
-	if (runner-> n == 0)
+	if (runner->n == 0)
 	{
 	fprintf(stderr, "L%d: division by zero\n", line_number);
 	exit(EXIT_FAILURE);
