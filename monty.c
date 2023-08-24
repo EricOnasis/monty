@@ -1,6 +1,6 @@
 #include "monty.h"
 
-
+global_var_t var_global;
 
 /**
  * main - main body for the monty program

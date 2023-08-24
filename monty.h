@@ -53,7 +53,7 @@ typedef struct global_var_s
 } global_var_t;
 
 
-global_var_t var_global;
+extern global_var_t var_global;
 
 typedef void (*instruction_func)(stack_t **stack, unsigned int line_number);
 
