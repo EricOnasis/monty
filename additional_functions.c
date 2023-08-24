@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * read_file - reads a bytecode file and runs commands
@@ -103,30 +103,5 @@ void print_int(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
-}
-
-/**
- * pop - remove element a list
- *@stack: pointer to first node
- *@line_number: integer
- *Return: void
- */
-void pop(stack_t **stack, unsigned int line_number)
-{
-	stack_t *temp;
-
-	if (!*stack)
-	{
-	fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-	exit(EXIT_FAILURE);
-	}
-
-	temp = *stack;
-	*stack = (*stack)->next;
-
-	if (*stack)
-	(*stack)->prev = NULL;
-
-	free(temp);
 }
 

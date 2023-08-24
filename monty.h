@@ -77,5 +77,6 @@ void divide(stack_t **stack, unsigned int line_number);
 void modulo(stack_t **stack, unsigned int line_number);
 int is_alphabetical(int c);
 void free_stack(stack_t *stack);
+char *parse_line(char *line, stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
