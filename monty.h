@@ -58,7 +58,7 @@ extern global_var_t var_global;
 typedef void (*instruction_func)(stack_t **stack, unsigned int line_number);
 
 /* Monty Function Declarations */
-void read_file(char *filename, stack_t **stack);
+/*void read_file(char *filename, stack_t **stack);*/
 instruction_func get_opcode_function(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void print_all(stack_t **stack, unsigned int line_number);

@@ -1,5 +1,6 @@
 #include "monty.h"
 
+void read_file(char *filename, stack_t **stack);
 global_var_t var_global;
 
 /**
@@ -76,3 +77,48 @@ instruction_func get_opcode_function(char *str)
 	return (instructions[i].f);
 }
 
+/**
+ * read_file - reads a bytecode file and runs commands
+ * @filename: pathname to file
+ * @stack: pointer to the top of the stack
+ */
+void read_file(char *filename, stack_t **stack)
+{
+	char *line;
+	size_t len = 0;
+	int line_number = 1;
+	instruction_func instruction;
+	(void) len;
+
+	var_global.file = fopen(filename, "r");
+	if (var_global.file == NULL)
+	{
+	fprintf(stderr, "Error: Can't open file %s\n", filename);
+	exit(EXIT_FAILURE);
+	}
+
+	while (fgets(var_global.buffer,
+				sizeof(var_global.buffer), var_global.file) != NULL)
+	{
+	line = var_global.buffer;
+	line[strcspn(line, "\n")] = '\0';
+	line = parse_line(var_global.buffer, stack, line_number);
+	if (line == NULL || line[0] == '#')
+	{
+	line_number++;
+	continue;
+	}
+	instruction = get_opcode_function(line);
+	if (instruction == NULL)
+	{
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, line);
+	exit(EXIT_FAILURE);
+	}
+	instruction(stack, line_number);
+	line_number++;
+	}
+
+	free(line);
+	free(var_global.buffer);
+	fclose(var_global.file);
+}
