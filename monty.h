@@ -7,6 +7,9 @@
 #include <unistd.h>
 #include <ctype.h>
 
+
+#define BUFFER_SIZE 1024
+
 /* Struct Definitions */
 
 /**
@@ -49,11 +52,12 @@ typedef struct global_var_s
 {
 	FILE *file;
 	int push_arg;
-	char *buffer;
+	char buffer[BUFFER_SIZE];
 } global_var_t;
 
 
 extern global_var_t var_global;
+/* var_global_t var_global = {NULL, {0}}; */
 
 typedef void (*instruction_func)(stack_t **stack, unsigned int line_number);
 
